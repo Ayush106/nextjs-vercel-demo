@@ -8,9 +8,15 @@ const spaceX = introspect.graphql({
 	url: 'https://spacex-api.fly.dev/graphql/',
 });
 
+const rickAndMarty = introspect.graphql({
+	apiNamespace: 'rickAndMarty',
+	url: 'https://rickandmortyapi.com/graphql',
+});
+
+
 // configureWunderGraph emits the configuration
 configureWunderGraphApplication({
-	apis: [spaceX],
+	apis: [spaceX,rickAndMarty],
 	server,
 	operations,
 	codeGenerators: [
