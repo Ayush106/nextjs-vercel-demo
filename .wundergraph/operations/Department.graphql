@@ -1,0 +1,6 @@
+query Department {
+	department_departments {
+		id
+    name
+	}
+}

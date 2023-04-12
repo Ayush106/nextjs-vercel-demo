@@ -22,6 +22,8 @@ import type { OperationErrors } from "./ts-operation-errors";
 
 import type { PublicCustomClaims } from "./claims";
 import type {
+	DepartmentResponse,
+	DepartmentResponseData,
 	DragonsResponse,
 	DragonsResponseData,
 	EpisodesResponse,
@@ -56,12 +58,15 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "97939025",
+	applicationHash: "66511cab",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.143.1",
 };
 
 export const operationMetadata: OperationMetadata = {
+	Department: {
+		requiresAuthentication: false,
+	},
 	Dragons: {
 		requiresAuthentication: false,
 	},
@@ -132,6 +137,12 @@ export const createClient = (config?: CreateClientConfig) => {
 };
 
 export type Queries = {
+	Department: {
+		input?: undefined;
+		response: { data?: DepartmentResponse["data"]; error?: ClientOperationErrors };
+		requiresAuthentication: false;
+		liveQuery: boolean;
+	};
 	Dragons: {
 		input?: undefined;
 		response: { data?: DragonsResponse["data"]; error?: ClientOperationErrors };
@@ -180,6 +191,12 @@ export type Subscriptions = {
 };
 
 export type LiveQueries = {
+	Department: {
+		input?: undefined;
+		response: { data?: DepartmentResponse["data"]; error?: ClientOperationErrors };
+		liveQuery: true;
+		requiresAuthentication: false;
+	};
 	Dragons: {
 		input?: undefined;
 		response: { data?: DragonsResponse["data"]; error?: ClientOperationErrors };
