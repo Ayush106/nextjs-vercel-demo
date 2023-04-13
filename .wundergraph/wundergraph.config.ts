@@ -13,10 +13,10 @@ const rickAndMarty = introspect.graphql({
 	url: 'https://rickandmortyapi.com/graphql',
 });
 
-const department = introspect.graphql({
-    apiNamespace: 'department',
-    url: 'http://54.168.234.74:4000/graphql',
-});
+// const department = introspect.graphql({
+//     apiNamespace: 'department',
+//     url: 'http://54.168.234.74:4000/graphql',
+// });
 
 
 // const db = introspect.mysql({
@@ -30,7 +30,7 @@ const department = introspect.graphql({
 
 // configureWunderGraph emits the configuration
 configureWunderGraphApplication({
-	apis: [spaceX,rickAndMarty,department],
+	apis: [spaceX,rickAndMarty],
 	server,
 	operations,
 	codeGenerators: [
