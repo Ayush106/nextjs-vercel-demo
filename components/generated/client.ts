@@ -28,6 +28,8 @@ import type {
 	DragonsResponseData,
 	EpisodesResponse,
 	EpisodesResponseData,
+	UsersResponse,
+	UsersResponseData,
 	IncrementalDataResponse,
 	IncrementalDataResponseData,
 	IncrementalDelayResponse,
@@ -58,7 +60,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "66511cab",
+	applicationHash: "9fc0b8a0",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.143.1",
 };
@@ -71,6 +73,9 @@ export const operationMetadata: OperationMetadata = {
 		requiresAuthentication: false,
 	},
 	Episodes: {
+		requiresAuthentication: false,
+	},
+	Users: {
 		requiresAuthentication: false,
 	},
 	"incremental/data": {
@@ -155,6 +160,12 @@ export type Queries = {
 		requiresAuthentication: false;
 		liveQuery: boolean;
 	};
+	Users: {
+		input?: undefined;
+		response: { data?: UsersResponse["data"]; error?: ClientOperationErrors };
+		requiresAuthentication: false;
+		liveQuery: boolean;
+	};
 	"incremental/delay": {
 		input: IncrementalDelayInput;
 		response: { data?: IncrementalDelayResponseData; error?: OperationErrors["incremental/delay"] };
@@ -206,6 +217,12 @@ export type LiveQueries = {
 	Episodes: {
 		input?: undefined;
 		response: { data?: EpisodesResponse["data"]; error?: ClientOperationErrors };
+		liveQuery: true;
+		requiresAuthentication: false;
+	};
+	Users: {
+		input?: undefined;
+		response: { data?: UsersResponse["data"]; error?: ClientOperationErrors };
 		liveQuery: true;
 		requiresAuthentication: false;
 	};

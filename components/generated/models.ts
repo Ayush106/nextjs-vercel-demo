@@ -54,6 +54,11 @@ export interface EpisodesResponse {
 	errors?: GraphQLError[];
 }
 
+export interface UsersResponse {
+	data?: UsersResponseData;
+	errors?: GraphQLError[];
+}
+
 export interface IncrementalDataResponse {
 	data?: IncrementalDataResponseData;
 	errors?: GraphQLError[];
@@ -99,6 +104,14 @@ export interface EpisodesResponseData {
 			count?: number;
 		};
 	};
+}
+
+export interface UsersResponseData {
+	users?: {
+		id?: string;
+		name?: string;
+		email?: string;
+	}[];
 }
 
 export type IncrementalDataResponseData = ExtractResponse<typeof function_IncrementalData>;
