@@ -39,11 +39,6 @@ export interface InternalUsersUpdateInput {
 	bio: string;
 }
 
-export interface DepartmentResponse {
-	data?: DepartmentResponseData;
-	errors?: GraphQLError[];
-}
-
 export interface DragonsResponse {
 	data?: DragonsResponseData;
 	errors?: GraphQLError[];
@@ -82,13 +77,6 @@ export interface UsersSubscribeResponse {
 export interface UsersUpdateResponse {
 	data?: UsersUpdateResponseData;
 	errors?: GraphQLError[];
-}
-
-export interface DepartmentResponseData {
-	department_departments: {
-		id: string;
-		name: string;
-	}[];
 }
 
 export interface DragonsResponseData {
